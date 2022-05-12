@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+perltidy ./*.pl -b -bext='/'
