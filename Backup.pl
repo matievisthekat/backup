@@ -8,7 +8,7 @@ use Getopt::Long;
 
 Readonly our $VERSION => q{0.0.0};
 
-my $exit_code = main();
+exit main();
 
 sub main {
     my $verbose = 0;
@@ -27,5 +27,3 @@ sub main {
 
     return 0;
 }
-
-1;
