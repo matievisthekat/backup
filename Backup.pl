@@ -8,11 +8,11 @@ use Getopt::Long;
 Readonly our $AUTHOR  => "Matthew Stead <matievisthekat\@gmail.com>";
 Readonly our $VERSION => q{0.0.0};
 
-our $verbose = 0;
-our $debug   = 0;
-our $help    = 0;
-our $version = 0;
-our $args    = GetOptions(
+my $verbose = 0;
+my $debug   = 0;
+my $help    = 0;
+my $version = 0;
+my $args    = GetOptions(
     'verbose' => \$verbose,
     'debug'   => \$debug,
     'help'    => \$help,
@@ -20,12 +20,22 @@ our $args    = GetOptions(
 ) or die();
 
 sub verbose {
-    print @_ if $verbose;
+    my $arg0 = shift;
+    if ($verbose) {
+        print $arg0;
+    }
+    return 0;
 }
 
 sub debug {
-    print @_ if $debug;
+    my $arg0 = shift;
+    if ($debug) {
+        print $arg0;
+    }
+    return 0;
 }
+
+debug $args;
 
 if ($version) {
     debug "\$VERSION=$VERSION\n";
