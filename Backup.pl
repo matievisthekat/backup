@@ -2,7 +2,7 @@ package Backup;
 use strict;
 use warnings;
 use Readonly;
-
+use Data::Dumper::Simple;
 use Getopt::Long;
 
 Readonly our $AUTHOR  => "Matthew Stead <matievisthekat\@gmail.com>";
@@ -12,7 +12,7 @@ my $verbose = 0;
 my $debug   = 0;
 my $help    = 0;
 my $version = 0;
-my $args    = GetOptions(
+GetOptions(
     'verbose' => \$verbose,
     'debug'   => \$debug,
     'help'    => \$help,
@@ -27,15 +27,14 @@ sub verbose {
     return 0;
 }
 
-sub debug {
-    my $arg0 = shift;
+sub debug {;
     if ($debug) {
-        print $arg0;
+        print @_;
     }
     return 0;
 }
 
-debug $args;
+debug Dumper($VERSION, $AUTHOR, $verbose);
 
 if ($version) {
     debug "\$VERSION=$VERSION\n";
